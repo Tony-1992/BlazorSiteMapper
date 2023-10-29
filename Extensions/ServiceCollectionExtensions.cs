@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace BlazorSiteMapper.Extensions
 {
-    public static class IServiceCollectionExtensions
+    public static class ServiceCollectionExtensions
     {
         /// <summary>
         /// Registers the sitemapper generator as a singleton.
@@ -12,6 +12,7 @@ namespace BlazorSiteMapper.Extensions
         /// <returns></returns>
         public static IServiceCollection RegisterSitemapper(this IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
             services.AddSingleton<SitemapGenerator>();
 
             return services;

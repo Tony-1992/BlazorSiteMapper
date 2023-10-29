@@ -18,7 +18,8 @@ namespace BlazorSitemapper.Sitemap
             List<SitemapEntry> sitemapEntries = new List<SitemapEntry>();
             HttpContext? httpContext = _httpContextAccessor.HttpContext;
 
-            IEnumerable<Type> componentTypes = Assembly.GetExecutingAssembly()
+
+            IEnumerable<Type> componentTypes = Assembly.GetEntryAssembly()
                 .GetTypes()
                 .Where(type => typeof(ComponentBase).IsAssignableFrom(type));
 
@@ -29,10 +30,11 @@ namespace BlazorSitemapper.Sitemap
                 if (sitemapAttribute != null)
                 {
                     HostString domain = _httpContextAccessor.HttpContext.Request.Host;
+
                     // Create a sitemap entry for the component using the current route
                     SitemapEntry entry = new SitemapEntry
                     {
-                        Url = domain + sitemapAttribute.Url,
+                        Url = $"{domain}{sitemapAttribute.Url}",
                         LastModified = DateTime.UtcNow,
                         ChangeFrequency = sitemapAttribute.ChangeFreq,
                         Priority = sitemapAttribute.Priority
