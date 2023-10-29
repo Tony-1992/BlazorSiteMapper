@@ -4,11 +4,20 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<Authors>tony.palmer</Authors>
+		<Description>A simple blazor sitemap generator package</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageProjectUrl>https://github.com/Tony-1992/BlazorSiteMapper</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/Tony-1992/BlazorSiteMapper</RepositoryUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageTags>Blazor,Sitemap</PackageTags>
+		<Version>1.0.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 		<PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.24" />
+		<None Include=".\README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 </Project>
