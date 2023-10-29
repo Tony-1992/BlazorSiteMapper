@@ -6,12 +6,10 @@ namespace BlazorSitemapper.Sitemap
 {
     internal class SitemapGenerator
     {
-        private readonly IServiceProvider _serviceProvider;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public SitemapGenerator(IServiceProvider serviceProvider, IHttpContextAccessor httpContextAccessor)
+        public SitemapGenerator(IHttpContextAccessor httpContextAccessor)
         {
-            _serviceProvider = serviceProvider;
             _httpContextAccessor = httpContextAccessor;
         }
 

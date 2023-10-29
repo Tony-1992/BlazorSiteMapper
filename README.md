@@ -15,7 +15,11 @@ Add the following to `Program.cs`
 ```csharp
 using BlazorSiteMapper.Extensions;
 ```
-Add the following to the `Program.cs` after `app.UseRouting();`
+Add the following to the `Program.cs`
+```csharp
+buider.Services.RegisterSitemapper();
+```
+Add the following after the `app.UseRouting();`
 ```csharp
 app.CreateSitemap();
 ```
