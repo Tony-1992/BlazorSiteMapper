@@ -3,7 +3,7 @@ BlazorSiteMapper
 [![NuGet version](https://img.shields.io/nuget/vpre/BlazorSiteMapper.svg?&label=nuget%20version&logo=nuget&style=flat-square)](https://www.nuget.org/packages/BlazorSiteMapper/)
 [![NuGet downloads](https://img.shields.io/nuget/dt/BlazorSiteMapper.svg?&label=nuget%20version&logo=nuget&style=flat-square)](https://www.nuget.org/packages/BlazorSiteMapper) 
 
-[Sitemap](https://en.wikipedia.org/wiki/Sitemaps) generator for Blazor.
+[Sitemap](https://en.wikipedia.org/wiki/Sitemaps) generator for Blazor. Please feel free to raise an issue if this does not work and I'll look into it. Thanks.
 
 
 # Usage
@@ -17,7 +17,7 @@ using BlazorSiteMapper.Extensions;
 ```
 Add the following to the `Program.cs`
 ```csharp
-buider.Services.RegisterSitemapper();
+builder.Services.RegisterSitemapper();
 ```
 Add the following after the `app.UseRouting();`
 ```csharp
