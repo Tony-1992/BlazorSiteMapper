@@ -34,7 +34,7 @@ namespace BlazorSitemapper.Sitemap
                     // Create a sitemap entry for the component using the current route
                     SitemapEntry entry = new SitemapEntry
                     {
-                        Url = $"{domain}{sitemapAttribute.Url}",
+                        Url = $"https://{domain}{sitemapAttribute.Url}",
                         LastModified = DateTime.UtcNow,
                         ChangeFrequency = sitemapAttribute.ChangeFreq,
                         Priority = sitemapAttribute.Priority
