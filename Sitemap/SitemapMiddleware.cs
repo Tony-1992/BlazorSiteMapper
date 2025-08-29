@@ -4,6 +4,12 @@ using System.Text;
 
 namespace BlazorSitemapper.Sitemap
 {
+    /// <summary>
+    /// Middleware that handles requests for the sitemap.xml file and generates a dynamic sitemap response.
+    /// </summary>
+    /// <remarks>This middleware intercepts requests to the "/sitemap.xml" path and generates an XML sitemap
+    /// based on the entries provided by the <see cref="SitemapGenerator"/>. If the request path does not match
+    /// "/sitemap.xml", the middleware passes the request to the next middleware in the pipeline.</remarks>
     internal class SitemapMiddleware
     {
         private readonly RequestDelegate _next;
@@ -15,6 +21,14 @@ namespace BlazorSitemapper.Sitemap
             _sitemapGenerator = sitemapGenerator;
         }
 
+        /// <summary>
+        /// Handles HTTP requests and generates a sitemap XML response if the request path is "/sitemap.xml".
+        /// </summary>
+        /// <remarks>If the request path is "/sitemap.xml", this method generates a sitemap XML document
+        /// using the  configured sitemap generator and writes it to the response with a content type of "text/xml". For
+        /// all other request paths, the request is passed to the next middleware in the pipeline.</remarks>
+        /// <param name="context">The <see cref="HttpContext"/> representing the current HTTP request and response.</param>
+        /// <returns>A <see cref="Task"/> that represents the asynchronous operation.</returns>
         public async Task Invoke(HttpContext context)
         {
             if (context.Request.Path == "/sitemap.xml")
@@ -30,6 +44,14 @@ namespace BlazorSitemapper.Sitemap
             }
         }
 
+        /// <summary>
+        /// Generates an XML sitemap string based on the provided list of sitemap entries.
+        /// </summary>
+        /// <remarks>The generated XML includes the URL, last modification date, change frequency, and
+        /// priority for each entry. The output conforms to the sitemap protocol schema defined at <see
+        /// href="http://www.sitemaps.org/schemas/sitemap/0.9"/>.</remarks>
+        /// <param name="sitemapEntries">A list of <see cref="SitemapEntry"/> objects representing the URLs and metadata to include in the sitemap.</param>
+        /// <returns>A string containing the XML representation of the sitemap, formatted according to the sitemap protocol.</returns>
         private string GenerateSitemapXml(List<SitemapEntry> sitemapEntries)
         {
             StringBuilder sb = new StringBuilder();

@@ -1,23 +1,37 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
+		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
-		<Authors>tony.palmer</Authors>
-		<Description>A simple blazor sitemap generator package</Description>
-		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<PackageId>BlazorSiteMapper</PackageId>
+		<Authors>Tony</Authors>
+		<Description>A simple package to help generate a sitemap.xml file for your Blazor WASM or Server application.</Description>
 		<PackageProjectUrl>https://github.com/Tony-1992/BlazorSiteMapper</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/Tony-1992/BlazorSiteMapper</RepositoryUrl>
+		<RepositoryUrl>https://github.com/Tony-1992/BlazorSiteMapper.git</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>blazor;sitemap;seo;xml</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageTags>Blazor,Sitemap</PackageTags>
-		<Version>1.0.4</Version>
+
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<FrameworkReference Include="Microsoft.AspNetCore.App" />
-		<PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.31" />
 		<None Include=".\README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+		<PackageReference Include="Microsoft.AspNetCore.Components" Version="8.0.19" />
+	</ItemGroup>
 </Project>

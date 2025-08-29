@@ -32,10 +32,15 @@ Add the following to the `Program.cs` above your `app.Run();`
 app.CreateSitemap();
 ```
 
+Add the following to the `_Imports.razor`
+```csharp
+@using BlazorSitemapper.Sitemap
+```
+
 Once that is done, you should be able to navigate to `[your-domain]/sitemap.xml` and see a generated xml file with all pages you've annoted.
 
 ## Annotate your pages (example)
 ```csharp
 @page "/register"
-@attribute [SitemapUrl("/register" changeFreq: ChangeFreq.Daily, priority: 1.0)]
+@attribute [SitemapUrl("/register", changeFreq: ChangeFreq.Daily, priority: 1.0)]
 ```

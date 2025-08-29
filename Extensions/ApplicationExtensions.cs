@@ -6,10 +6,13 @@ namespace BlazorSiteMapper.Extensions
     public static class ApplicationExtensions
     {
         /// <summary>
-        /// Creates the sitemap.xml file at the location [your-host]/sitemap.xml
+        /// Configures the application to use the <see cref="SitemapMiddleware"/> for generating and serving sitemaps.
         /// </summary>
-        /// <param name="app">Continues the IApplicationBuilder chain.</param>
-        /// <returns></returns>
+        /// <remarks>This extension method adds the <see cref="SitemapMiddleware"/> to the application's
+        /// request pipeline. Ensure that the middleware is added in the appropriate order relative to other middleware
+        /// components.</remarks>
+        /// <param name="app">The <see cref="IApplicationBuilder"/> instance to configure.</param>
+        /// <returns>The <see cref="IApplicationBuilder"/> instance, to allow for method chaining.</returns>
         public static IApplicationBuilder CreateSitemap(this IApplicationBuilder app)
         {
             app.UseMiddleware<SitemapMiddleware>();
