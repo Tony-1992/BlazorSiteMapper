@@ -1,5 +1,4 @@
 # BlazorSiteMapper
-===========================
 
 [![NuGet version](https://img.shields.io/nuget/vpre/BlazorSiteMapper.svg?&label=nuget%20version&logo=nuget&style=flat-square)](https://www.nuget.org/packages/BlazorSiteMapper/)
 [![NuGet downloads](https://img.shields.io/nuget/dt/BlazorSiteMapper.svg?&label=downloads&logo=nuget&style=flat-square)](https://www.nuget.org/packages/BlazorSiteMapper) 
@@ -33,7 +32,7 @@ app.CreateSitemap();
 ```
 
 Add the following to the `_Imports.razor`
-```csharp
+```razor
 @using BlazorSitemapper.Sitemap
 ```
 
